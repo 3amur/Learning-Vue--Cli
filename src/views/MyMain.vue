@@ -6,7 +6,17 @@
       velit deserunt repellat ipsum a recusandae accusamus eius doloribus et,
       quae aliquam sit, voluptas totam! Libero voluptatem magnam deserunt eos!
     </p>
-    <Content :students="students" />
+    <Content
+      :students="students"
+      @updateActive="changeActive()"
+      :isActive="isActive"
+    />
+    <hr />
+    <Content
+      :students="students"
+      @updateActive="changeActive()"
+      :isActive="isActive"
+    />
   </div>
 </template>
 
@@ -20,7 +30,13 @@ export default {
   data() {
     return {
       students: ["omar", "mohammed", "ali"],
+      isActive: true,
     };
+  },
+  methods: {
+    changeActive() {
+      this.isActive = !this.isActive;
+    },
   },
 };
 </script>
